@@ -1,0 +1,17 @@
+{
+  "name": "sense_care",
+  "version": "1.0.0",
+  "description": "Este documento detalha os requisitos funcionais e de prioridade para o sistema SENSE CARE, uma plataforma voltada para o gerenciamento de pacientes e enfermeiros.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3"
+  }
+}

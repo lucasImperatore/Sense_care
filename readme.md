@@ -57,6 +57,8 @@ Formulário para registro de novos profissionais de enfermagem.
     * Coren (Número de registro profissional)
     * CPF
     * Data de Nascimento
+    * E-mail
+    * Telefone
 
 ---
 
