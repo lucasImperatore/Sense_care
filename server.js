@@ -15,31 +15,32 @@ const db = mysql.createConnection({
   host: "localhost", // Servidor do MySQL
   user: "root", // Usuário padrão do XAMPP
   password: "", // Senha (geralmente vazia no XAMPP)
-  database: "sense_care", // Nome do banco que você criou
+  database: "senseCare", // Nome do banco que você criou
 });
 
 // ---------- ROTAS ----------
 
 // GET /usuarios → retorna todos os usuários do banco
-app.get("/enfermeiros", (req, res) => {
-  db.query("SELECT * FROM enfermeiros", (err, results) => {
+app.get("/enfermeiro", (req, res) => {
+  db.query("SELECT * FROM enfermeiro", (err, results) => {
     if (err) throw err; // Se der erro na query, interrompe
     res.json(results); // Envia o resultado como JSON para o front
   });
 });
 
 // POST /usuarios → insere um novo usuário no banco
-app.post("/enfermeiros", (req, res) => {
+app.post("/enfermeiro", (req, res) => {
   const {
     nome,
     coren,
     cpf,
-    dataNascimento
+    dataNascimento,
+    fk_cpf_Paciente
     
   } = req.body; // Extrai os dados enviados pelo front
   db.query(
-    "INSERT INTO enfermeiros (nome, coren, cpf, dataNascimento) VALUES (?, ?, ?, ?)", // Query SQL com placeholders
-    [nome, coren, cpf, dataNascimento], // Valores que substituem os "?"
+    "INSERT INTO enfermeiro (nome, coren, cpf_Enfermeiro, dataNascimento,fk_cpf_Paciente) VALUES (?, ?, ?, ?, ?, ?)", // Query SQL com placeholders
+    [nome, coren, cpf, dataNascimento, fk_cpf_Paciente], // Valores que substituem os "?"
     (err, result) => {
       if (err) throw err;
       res.json({ message: "adicionado(a) com sucesso!" }); // Retorno de sucesso
