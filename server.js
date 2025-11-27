@@ -39,8 +39,8 @@ app.post("/enfermeiro", (req, res) => {
     
   } = req.body; // Extrai os dados enviados pelo front
   db.query(
-    "INSERT INTO enfermeiro (nome, coren, cpf_Enfermeiro, dataNascimento,fk_cpf_Paciente) VALUES (?, ?, ?, ?, ?, ?)", // Query SQL com placeholders
-    [nome, coren, cpf, dataNascimento, fk_cpf_Paciente], // Valores que substituem os "?"
+    "INSERT INTO enfermeiro (nome,cpf_Enfermeiro ,coren , dataNascimento,fk_cpf_Paciente) VALUES (?, ?, ?, ?, ?)", // Query SQL com placeholders
+    [nome, dataNascimento, cpf, coren, fk_cpf_Paciente], // Valores que substituem os "?"
     (err, result) => {
       if (err) throw err;
       res.json({ message: "adicionado(a) com sucesso!" }); // Retorno de sucesso
