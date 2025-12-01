@@ -48,7 +48,7 @@ form.addEventListener("submit", async (e) => {
   const cpf = document.getElementById("cpf").value;
   const nascimento = document.getElementById("nascimento").value;
   const email = document.getElementById("email").value;
-  const paciente = document.getElementById("paciente").value;
+  
 
   if (nome.trim() !== "") {
     try {
@@ -59,11 +59,10 @@ form.addEventListener("submit", async (e) => {
           nome,
           coren,
           cpf,
-          nascimento,
-          email,
-          paciente
+          dataNascimento: nascimento,
         }),
       });
+      console.log(form)
 
       if (response.ok) {
         console.log("Enfermeiro cadastrado com sucesso!");
