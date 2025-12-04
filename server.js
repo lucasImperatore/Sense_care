@@ -48,6 +48,65 @@ app.post("/enfermeiro", (req, res) => {
   );
 });
 
+// GET /usuarios → retorna todos os usuários do banco
+app.get("/paciente", (req, res) => {
+  db.query("SELECT * FROM paciente", (err, results) => {
+    if (err) throw err; // Se der erro na query, interrompe
+    res.json(results); // Envia o resultado como JSON para o front
+  });
+});
+
+// POST /usuarios → insere um novo usuário no banco
+app.post("/paciente", (req, res) => {
+  const {
+    cpf1, // O nome do campo no front é 'cpf1', mas a coluna no DB é 'cpf_Paciente'
+    nome1, // O nome do campo no front é 'nome1', mas a coluna no DB é 'Nome'
+    nomeMae, // O nome do campo no front é 'nomeMae', mas a coluna no DB é 'Nome_Da_Mae'
+    nascimentop, // O nome do campo no front é 'nascimentop', mas a coluna no DB é 'data_De_Nascimento'
+    idoso,
+    gestante,
+    neuro,
+    alergias,
+    medico,
+    leito,
+    deficiencia,
+  } = req.body; // Extrai os dados enviados pelo front 
+
+const pacienteDeRisco = [];
+if (idoso) pacienteDeRisco.push("'+60 anos'");
+if (gestante) pacienteDeRisco.push("'gestante'");
+if (neuro) pacienteDeRisco.push("'neuro divergente'");
+
+let pacienteRiscoValue = null;
+if (idoso == "true" || idoso == "on") {
+  // Supondo que você use true/false ou 'on'/'off'
+  pacienteRiscoValue = "+60 anos";
+} else if (gestante == "true" || gestante == "on") {
+  pacienteRiscoValue = "gestante";
+} else if (neuro == "true" || neuro == "on") {
+  pacienteRiscoValue = "neuro divergente";
+}
+
+  db.query(
+    "INSERT INTO paciente (cpf_Paciente, Nome, Nome_Da_Mae, data_De_Nascimento, deficiencia, paciente_De_Risco, alergias, Nome_Do_Medico, Leito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", // Query SQL com placeholders
+    [
+      cpf1, // -> cpf_Paciente
+      nome1, // -> Nome
+      nomeMae, // -> Nome_Da_Mae
+      nascimentop, // -> data_De_Nascimento
+      deficiencia, // -> deficiencia
+      pacienteRiscoValue, // -> paciente_De_Risco (Valor único calculado ou null)
+      alergias, // -> alergias
+      medico, // -> Nome_Do_Medico
+      leito, // -> Leito
+    ], // Valores que substituem os "?"
+    (err, result) => {
+      if (err) throw err;
+      res.json({ message: "adicionado(a) com sucesso!" }); // Retorno de sucesso
+    }
+  );
+});
+
 // app.delete("/characters/:classe", (req, res) => {
 //   const classe = req.params.classe;
 

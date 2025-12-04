@@ -8,57 +8,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
     <body>
-        <fieldset class="container-md">
-            <form action="submit">
-                <h1>Cadastro de Pacientes</h1>
+        <fieldset class="container-fluid">
+            <form action="submit" id="add2">
+                <h1 class="title text-center">Cadastro de Pacientes</h1>
                 <DIV>
                     <label for="text">CPF</label>
-                    <input type="text" placeholder="000 000 000 00">
+                    <input type="text" placeholder="000 000 000 00"  id="cpf1">
                 </DIV>
                 <br>
                 <div>
-                    <label for="text">Nome</label>
-                    <input type="text" placeholder="Nome Completo">
+                    <label for="text" >Nome</label>
+                    <input type="text" placeholder="Nome Completo" id="nome1">
                 </div>
                 <br>
                 <div>
-                    <label for="text">NOME DA MAE</label>
-                    <input type="text" placeholder="Nome da Mãe">
+                    <label for="text" >NOME DA MAE</label>
+                    <input type="text" placeholder="Nome da Mãe" id="nomeMae">
                 </div>
                 <br>
                 <div>
                     <label for="text">DATA DE NASCIMENTO</label>
-                    <input type="date">
+                    <input type="date"  id="nascimentoP">
                 </div>
                 <br>
                 <div>
-                    <label for="text">DEFICIENCIA</label>
-                    <input type="text" placeholder="sim(qual) ou não">
+                    <label for="text" >DEFICIENCIA</label>
+                    <input type="text" placeholder="sim(qual) ou não" id="deficiencia">
                 </div>
                 <br>
                 <div>
                     <p>PACIENTE DE RISCO</p>
                     <label for="text">+60 anos</label>
-                    <input type="checkbox">
+                    <input type="checkbox" id="60+">
                     <label for="text">gestante</label>
-                    <input type="checkbox">
+                    <input type="checkbox" id="gestante">
                     <label for="text">neuro divergente</label>
-                    <input type="checkbox">
+                    <input type="checkbox" id="neuro">
                 </div>
                 <br>
                 <div>
                     <label for="text">ALERGIAS</label>
-                    <input type="text" placeholder="Amendoim">
+                    <input type="text" placeholder="Amendoim" id="alergias">
                 </div>  
                 <br>      
                 <div>
                     <label for="text">NOME DO MEDICO</label>
-                    <input type="text" placeholder="Dr. Roberto Lima">
+                    <input type="text" placeholder="Dr. Roberto Lima" id="medico">
                 </div>
                 <br>
                 <div>
                     <label for="text">LEITO</label>
-                    <input type="text" placeholder="ex: 8">
+                    <input type="text" placeholder="ex: 8" id="leito">
                 </div>
                 
             </form>
