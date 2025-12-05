@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro do paciente</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-    <body>
-        <fieldset class="container-fluid">
-            <form action="submit" id="add2">
-                <h1 class="title text-center">Cadastro de Pacientes</h1>
-                <DIV>
-                    <label for="text">CPF</label>
-                    <input type="text" placeholder="000 000 000 00"  id="cpf1">
-                </DIV>
-                <br>
-                <div>
-                    <label for="text" >Nome</label>
-                    <input type="text" placeholder="Nome Completo" id="nome1">
-                </div>
-                <br>
-                <div>
-                    <label for="text" >NOME DA MAE</label>
-                    <input type="text" placeholder="Nome da Mãe" id="nomeMae">
-                </div>
-                <br>
-                <div>
-                    <label for="text">DATA DE NASCIMENTO</label>
-                    <input type="date"  id="nascimentoP">
-                </div>
-                <br>
-                <div>
-                    <label for="text" >DEFICIENCIA</label>
-                    <input type="text" placeholder="sim(qual) ou não" id="deficiencia">
-                </div>
-                <br>
-                <div>
-                    <p>PACIENTE DE RISCO</p>
-                    <label for="text">+60 anos</label>
-                    <input type="checkbox" id="60+">
-                    <label for="text">gestante</label>
-                    <input type="checkbox" id="gestante">
-                    <label for="text">neuro divergente</label>
-                    <input type="checkbox" id="neuro">
-                </div>
-                <br>
-                <div>
-                    <label for="text">ALERGIAS</label>
-                    <input type="text" placeholder="Amendoim" id="alergias">
-                </div>  
-                <br>      
-                <div>
-                    <label for="text">NOME DO MEDICO</label>
-                    <input type="text" placeholder="Dr. Roberto Lima" id="medico">
-                </div>
-                <br>
-                <div>
-                    <label for="text">LEITO</label>
-                    <input type="text" placeholder="ex: 8" id="leito">
-                </div>
-                
-            </form>
-            <br>
-            <button type="submit">Cadastrar</button>
-        </fieldset>
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="submit" id="add2">
+      <h1 class="title text-center">Cadastro de Pacientes</h1>
+      <div>
+        <label for="text">CPF</label>
+        <input type="text" placeholder="000 000 000 00" id="cpf1" />
+      </div>
+      <br />
+      <div>
+        <label for="text">Nome</label>
+        <input type="text" placeholder="Nome Completo" id="nome1" />
+      </div>
+      <br />
+      <div>
+        <label for="text">NOME DA MAE</label>
+        <input type="text" placeholder="Nome da Mãe" id="nomeMae" />
+      </div>
+      <br />
+      <div>
+        <label for="text">DATA DE NASCIMENTO</label>
+        <input type="date" id="nascimentoP" />
+      </div>
+      <br />
+      <div>
+        <label for="text">DEFICIENCIA</label>
+        <input type="text" placeholder="sim(qual) ou não" id="deficiencia" />
+      </div>
+      <br />
+      <div>
+        <p>PACIENTE DE RISCO</p>
+        <label for="text">+60 anos</label>
+        <input type="checkbox" id="60+" />
+        <label for="text">gestante</label>
+        <input type="checkbox" id="gestante" />
+        <label for="text">neuro divergente</label>
+        <input type="checkbox" id="neuro" />
+      </div>
+      <br />
+      <div>
+        <label for="text">ALERGIAS</label>
+        <input type="text" placeholder="Amendoim" id="alergias" />
+      </div>
+      <br />
+      <div>
+        <label for="text">NOME DO MEDICO</label>
+        <input type="text" placeholder="Dr. Roberto Lima" id="medico" />
+      </div>
+      <br />
+      <div>
+        <label for="text">LEITO</label>
+        <input type="text" placeholder="ex: 8" id="leito" />
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <br />
+    <script src="cadastroPaciente.js"></script>
 
-        <script src="script.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    </body>
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

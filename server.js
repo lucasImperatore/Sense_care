@@ -59,54 +59,41 @@ app.get("/paciente", (req, res) => {
 // POST /usuarios → insere um novo usuário no banco
 app.post("/paciente", (req, res) => {
   const {
-    cpf1, // O nome do campo no front é 'cpf1', mas a coluna no DB é 'cpf_Paciente'
-    nome1, // O nome do campo no front é 'nome1', mas a coluna no DB é 'Nome'
-    nomeMae, // O nome do campo no front é 'nomeMae', mas a coluna no DB é 'Nome_Da_Mae'
-    nascimentop, // O nome do campo no front é 'nascimentop', mas a coluna no DB é 'data_De_Nascimento'
-    idoso,
-    gestante,
-    neuro,
+    cpf1,
+    nome1,
+    nomeMae,
+    nascimentop,
+    pacienteRiscoValue, // 💡 CORREÇÃO: Extrair o valor único de risco
     alergias,
     medico,
     leito,
     deficiencia,
-  } = req.body; // Extrai os dados enviados pelo front 
-
-const pacienteDeRisco = [];
-if (idoso) pacienteDeRisco.push("'+60 anos'");
-if (gestante) pacienteDeRisco.push("'gestante'");
-if (neuro) pacienteDeRisco.push("'neuro divergente'");
-
-let pacienteRiscoValue = null;
-if (idoso == "true" || idoso == "on") {
-  // Supondo que você use true/false ou 'on'/'off'
-  pacienteRiscoValue = "+60 anos";
-} else if (gestante == "true" || gestante == "on") {
-  pacienteRiscoValue = "gestante";
-} else if (neuro == "true" || neuro == "on") {
-  pacienteRiscoValue = "neuro divergente";
-}
+  } = req.body; // Extrai os dados enviados pelo front
 
   db.query(
-    "INSERT INTO paciente (cpf_Paciente, Nome, Nome_Da_Mae, data_De_Nascimento, deficiencia, paciente_De_Risco, alergias, Nome_Do_Medico, Leito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", // Query SQL com placeholders
+    "INSERT INTO paciente (cpf_Paciente, Nome, Nome_Da_Mae, data_De_Nascimento, deficiencia, paciente_De_Risco, alergias, Nome_Do_Medico, Leito) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
     [
-      cpf1, // -> cpf_Paciente
-      nome1, // -> Nome
-      nomeMae, // -> Nome_Da_Mae
-      nascimentop, // -> data_De_Nascimento
-      deficiencia, // -> deficiencia
-      pacienteRiscoValue, // -> paciente_De_Risco (Valor único calculado ou null)
-      alergias, // -> alergias
-      medico, // -> Nome_Do_Medico
-      leito, // -> Leito
-    ], // Valores que substituem os "?"
+      cpf1,
+      nome1,
+      nomeMae,
+      nascimentop,
+      deficiencia,
+      pacienteRiscoValue, // ✅ Variável correta na 6ª posição (paciente_De_Risco)
+      alergias,
+      medico,
+      leito,
+    ], // ✅ 9 variáveis para 9 placeholders (Ordem correta)
     (err, result) => {
-      if (err) throw err;
-      res.json({ message: "adicionado(a) com sucesso!" }); // Retorno de sucesso
+      if (err) {
+        console.error(err); // Imprime o erro para debug
+        return res
+          .status(500)
+          .json({ message: "Erro interno no servidor ao cadastrar paciente." }); // Retorna um status de erro
+      }
+      res.json({ message: "adicionado(a) com sucesso!" });
     }
   );
 });
-
 // app.delete("/characters/:classe", (req, res) => {
 //   const classe = req.params.classe;
 
