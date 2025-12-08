@@ -63,7 +63,7 @@ app.post("/paciente", (req, res) => {
     nome1,
     nomeMae,
     nascimentop,
-    pacienteRiscoValue, // 💡 CORREÇÃO: Extrair o valor único de risco
+    pacienteRiscoValue, 
     alergias,
     medico,
     leito,
@@ -78,14 +78,14 @@ app.post("/paciente", (req, res) => {
       nomeMae,
       nascimentop,
       deficiencia,
-      pacienteRiscoValue, // ✅ Variável correta na 6ª posição (paciente_De_Risco)
+      pacienteRiscoValue, 
       alergias,
       medico,
       leito,
-    ], // ✅ 9 variáveis para 9 placeholders (Ordem correta)
+    ], 
     (err, result) => {
       if (err) {
-        console.error(err); // Imprime o erro para debug
+        console.error(err); 
         return res
           .status(500)
           .json({ message: "Erro interno no servidor ao cadastrar paciente." }); // Retorna um status de erro

@@ -7,23 +7,7 @@
 // const nascimento = document.getElementById("nascimento").value;
 // const email = document.getElementById("email").value;
 
-//   await fetch(url)
-//     .then((Response) => {
-//       return Response.json();
-//     })
-//     .then((data) => {
-//       for (let i = 0; i < data.length; i++) {
-//         if (data[i].classe.toLowerCase() == pesquisa) {
-//           nome.innerHTML = `nome: ${data[i].nome}`;
-//           coren.innerHTML = `coren: ${data[i].coren}`;
-//           cpf.innerHTML = `cpf: ${data[i].cpf}`;
-//           nascimento.innerHTML = `nascimento: ${data[i].nascimento}`;
-//           email.innerHTML = `email: ${data[i].email}`;
-          
-//         } else {
-//           // alert("sua pesquisa nao foi encontrada")
-//         }
-//       }
+//   
 //     });
 // }
 
